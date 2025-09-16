@@ -33,6 +33,7 @@ jobs:
           PERSISTENT_PATH="/home/ec2-user/repos/aws_cdk_projects"
           sudo mkdir -p $PERSISTENT_PATH
           sudo cp -r $RUNNER_WORKSPACE/aws_cdk_projects/. $PERSISTENT_PATH/
+          sudo chown -R ec2-user:ec2-user /home/ec2-user/repos/aws_cdk_projects
           echo "Repository copied to $PERSISTENT_PATH"
 
           
