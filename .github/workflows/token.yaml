@@ -30,8 +30,8 @@ jobs:
          token: ${{ steps.app-token.outputs.token }}
       - name: Copy to persistent folder
         run: |
-          sudo mkdir -p /home/ec2-user/actions-runner/_work/aws_cdk_projects
-          sudo cp -r $RUNNER_WORKSPACE/aws_cdk_projects/* /home/ec2-user/actions-runner/_work/aws_cdk_projects/   
+          sudo mkdir -p /home/ec2-user/actions-runner/_persistent/aws_cdk_projects
+          sudo cp -r $RUNNER_WORKSPACE/aws_cdk_projects/* /home/ec2-user/actions-runner/_persistent/aws_cdk_projects/   
           
       - name: Show working directory
         run: pwd && ls -l
