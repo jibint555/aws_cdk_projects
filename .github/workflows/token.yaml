@@ -28,10 +28,10 @@ jobs:
         uses: actions/checkout@v4
         with:
          token: ${{ steps.app-token.outputs.token }}
-     - name: Copy to persistent folder
-       run: |
-         mkdir -p /home/ec2-user/actions-runner/_work/aws_cdk_projects
-         cp -r $RUNNER_WORKSPACE/aws_cdk_projects/* /home/ec2-user/actions-runner/_work/aws_cdk_projects/   
+      - name: Copy to persistent folder
+        run: |
+          mkdir -p /home/ec2-user/actions-runner/_work/aws_cdk_projects
+          cp -r $RUNNER_WORKSPACE/aws_cdk_projects/* /home/ec2-user/actions-runner/_work/aws_cdk_projects/   
           
       - name: Show working directory
         run: pwd && ls -l
