@@ -28,10 +28,13 @@ jobs:
         uses: actions/checkout@v4
         with:
          token: ${{ steps.app-token.outputs.token }}
-      - name: Copy to persistent folder
+      - name: Copy repo to persistent folder
         run: |
-          sudo mkdir -p /home/ec2-user/actions-runner/_persistent/aws_cdk_projects
-          sudo cp -r $RUNNER_WORKSPACE/aws_cdk_projects/* /home/ec2-user/actions-runner/_persistent/aws_cdk_projects/   
+          PERSISTENT_PATH="/home/ec2-user/repos/aws_cdk_projects"
+          mkdir -p $PERSISTENT_PATH
+          cp -r $RUNNER_WORKSPACE/aws_cdk_projects/. $PERSISTENT_PATH/
+          echo "Repository copied to $PERSISTENT_PATH"
+
           
       - name: Show working directory
         run: pwd && ls -l
@@ -44,4 +47,4 @@ jobs:
 
       - name: Verify repo contents
         run: |
-          ls -R /home/ec2-user/actions-runner/_persistent/aws_cdk_projects/ 
+          ls -R /home/ec2-user/repos/aws_cdk_projects 
