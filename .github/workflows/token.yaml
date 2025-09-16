@@ -48,7 +48,7 @@ jobs:
 
       - name: Debug workspace
         run: |
-          pwd
+          
           ls -al
           echo "Runner workspace: $RUNNER_WORKSPACE"
 
