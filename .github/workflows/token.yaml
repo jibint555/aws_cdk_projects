@@ -21,7 +21,8 @@ jobs:
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          installation-id: ${{ secrets.INSTALLATION_ID }}
+          owner: jibint555
+          repositories: aws_cdk_projects
 
       - name: Checkout repo with app token into folder
         uses: actions/checkout@v4
@@ -30,6 +31,12 @@ jobs:
           path: output   # folder name where repo will be cloned
       - name: Show working directory
         run: pwd && ls -l
+
+      - name: Debug workspace
+        run: |
+          pwd
+          ls -al
+          echo "Runner workspace: $RUNNER_WORKSPACE"
 
       - name: Verify repo contents
         run: |
