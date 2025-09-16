@@ -31,8 +31,8 @@ jobs:
       - name: Copy repo to persistent folder
         run: |
           PERSISTENT_PATH="/home/ec2-user/repos/aws_cdk_projects"
-          mkdir -p $PERSISTENT_PATH
-          cp -r $RUNNER_WORKSPACE/aws_cdk_projects/. $PERSISTENT_PATH/
+          sudo mkdir -p $PERSISTENT_PATH
+          sudo cp -r $RUNNER_WORKSPACE/aws_cdk_projects/. $PERSISTENT_PATH/
           echo "Repository copied to $PERSISTENT_PATH"
 
           
