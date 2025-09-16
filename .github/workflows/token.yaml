@@ -44,4 +44,4 @@ jobs:
 
       - name: Verify repo contents
         run: |
-          ls -R output
+          ls -R /home/ec2-user/actions-runner/_work/aws_cdk_projects/ 
