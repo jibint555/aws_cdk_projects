@@ -14,16 +14,13 @@ jobs:
       actions: write        # needed to trigger or manage workflows
       id-token: write       # needed if you want OIDC federation
     steps:
-      - name: Decode GitHub App private key
-        id: decode-key
-        run: |
-          echo "${{ secrets.APP_PRIVATE_KEY }}" | base64 --decode > ./app-private-key.pem
+      
       - name: Generate GitHub App token
         id: app-token
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ steps.decode-key.outputs.decoded-key }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
           installation-id: ${{ secrets.INSTALLATION_ID }}
 
       - name: Checkout repo with app token into folder
