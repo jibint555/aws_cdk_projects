@@ -28,6 +28,8 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
           path: output   # folder name where repo will be cloned
+      - name: Show working directory
+        run: pwd && ls -l
 
       - name: Verify repo contents
         run: |
