@@ -32,13 +32,16 @@ jobs:
         run: echo $HOME
       - name: Check runner user
         run: whoami
-      - name: Copy repo to persistent folder
+      - name: Set persistent folder path
         run: |
-          PERSISTENT_PATH="/home/ec2-user/repos/aws_cdk_projects"
+          PERSISTENT_PATH="$HOME/repos/aws_cdk_projects"
           mkdir -p $PERSISTENT_PATH
+          echo "Persistent folder: $PERSISTENT_PATH"
+      - name: Copy repository to persistent folder
+        run: |
+          PERSISTENT_PATH="$HOME/repos/aws_cdk_projects"
           cp -r $RUNNER_WORKSPACE/aws_cdk_projects/. $PERSISTENT_PATH/
           echo "Repository copied to $PERSISTENT_PATH"
-
           
       - name: Show working directory
         run: pwd && ls -l
@@ -49,6 +52,6 @@ jobs:
           ls -al
           echo "Runner workspace: $RUNNER_WORKSPACE"
 
-      - name: Verify repo contents
+      - name: Verify repo content
         run: |
-          ls -R /home/ec2-user/repos/aws_cdk_projects 
+          ls -R $PERSISTENT_PATH
