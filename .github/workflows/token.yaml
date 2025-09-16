@@ -28,6 +28,10 @@ jobs:
         uses: actions/checkout@v4
         with:
          token: ${{ steps.app-token.outputs.token }}
+      - name: Check runner home
+        run: echo $HOME
+      - name: Check runner user
+        run: whoami
       - name: Copy repo to persistent folder
         run: |
           PERSISTENT_PATH="/home/ec2-user/repos/aws_cdk_projects"
