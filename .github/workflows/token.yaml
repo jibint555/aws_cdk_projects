@@ -50,7 +50,7 @@ jobs:
         run: |
           
           ls -al
-          echo "Runner workspace: $RUNNER_WORKSPACE"
+          echo "Runner workspace1: $RUNNER_WORKSPACE"
 
       - name: Verify repo content
         run: |
