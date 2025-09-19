@@ -8,7 +8,7 @@ on:
 
 jobs:
   test-runner:
-    runs-on: test-runner      # Important: selects your self-hosted runner
+    runs-on: gibin_runner      # Important: selects your self-hosted runner
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
