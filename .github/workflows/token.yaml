@@ -5,7 +5,8 @@ on:
   push:
     branches:
       - main
-
+    paths:
+      - '.github/workflows/token.yaml'
 jobs:
   build:
     runs-on: self-hosted
