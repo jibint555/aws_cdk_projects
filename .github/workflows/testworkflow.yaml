@@ -1,0 +1,48 @@
+name: ECS Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      SOURCE_ENV:
+        description: "Select the source environment"
+        required: true
+        type: choice
+        options:
+          - qa6
+          - qa7
+          - qa8
+          - qa9
+          - us-uat
+          - ca-cat
+          - us-prod
+          - ca-prod
+          - kaba-prod
+
+      DEST_ENV:
+        description: "Select the destination environment"
+        required: true
+        type: choice
+        options:
+          - qa6
+          - qa7
+          - qa8
+          - qa9
+          - us-uat
+          - ca-cat
+          - us-prod
+          - ca-prod
+          - kaba-prod
+
+      BUILD_ENABLED:
+        description: "true = Build new image, false = Copy image from source"
+        required: true
+        type: choice
+        default: "false"
+        options:
+          - "true"
+          - "false"
+
+      IMAGE_TAG:
+        description: "Enter the image tag"
+        required: true
+        default: "latest"
